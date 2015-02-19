@@ -4,7 +4,7 @@ Execute blocks in chain for easy mocking timed stuff
 - `sleepBetween` - time interval in seconds between blocks
 - `chain` - the blocks to be executed on main thread
 
-# Examples
+## Examples
 
 ``` objc
     [TKMockChain sleepBetween:0.5 chain:
@@ -49,4 +49,32 @@ Or with `beforeEach` and `afterEach`
     },  ^{
         self.mockKVOStatus = 2;
     }, nil];
+```
+
+## How it works
+
+```
+     Main thread             Background thread
+         |                           |
+         |                    [ sleep for Ti ]
+         |<--------------------------|
+[ beforeEach block ]
+[   chain block 1  ]
+[  afterEach block ]
+         |-------------------------->|
+         |                    [ sleep for Ti ]
+[ beforeEach block ]
+[   chain block 2  ]
+[  afterEach block ]
+         |-------------------------->|
+         |                    [ sleep for Ti ]
+         |<--------------------------|
+[ beforeEach block ]
+[   chain block n  ]
+[  afterEach block ]
+         |
+
+
+
+
 ```
