@@ -1,6 +1,9 @@
 # TKMockChain
 Execute blocks in chain for easy mocking timed stuff
 
+- `sleepBetween` - time interval in seconds between blocks
+- `chain` - the blocks to be executed on main thread
+
 # Examples
 
 ``` objc
