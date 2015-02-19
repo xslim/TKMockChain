@@ -56,19 +56,19 @@ Or with `beforeEach` and `afterEach`
 ```
      Main thread             Background thread
          |                           |
-         |                    [ sleep for Ti ]
+                              [ sleep for Ti ]
          |<--------------------------|
 [ beforeEach block ]
 [   chain block 1  ]
 [  afterEach block ]
          |-------------------------->|
-         |                    [ sleep for Ti ]
+                              [ sleep for Ti ]
          |<--------------------------|
 [ beforeEach block ]
 [   chain block 2  ]
 [  afterEach block ]
          |-------------------------->|
-         |                    [ sleep for Ti ]
+                              [ sleep for Ti ]
          |<--------------------------|
 [ beforeEach block ]
 [   chain block n  ]
