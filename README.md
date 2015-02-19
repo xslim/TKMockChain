@@ -63,6 +63,7 @@ Or with `beforeEach` and `afterEach`
 [  afterEach block ]
          |-------------------------->|
          |                    [ sleep for Ti ]
+         |<--------------------------|
 [ beforeEach block ]
 [   chain block 2  ]
 [  afterEach block ]
