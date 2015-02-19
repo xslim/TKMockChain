@@ -22,3 +22,28 @@ Execute blocks in chain for easy mocking timed stuff
      },
      nil];
 ```
+
+Or with `beforeEach` and `afterEach`
+
+``` objc
+    // Mock the device changes
+    [TKMockChain sleepBetween:1 beforeEach:^{
+        NSLog(@"Will change status");
+    } afterEach:^{
+        NSLog(@"New status: %i", self.mockKVOStatus);
+    } chain:^{
+        self.mockKVOStatus = 0;
+    }, ^{
+        self.mockKVOStatus = 1;
+    }, ^{
+        self.mockKVOStatus = 2;
+    }, ^{
+        self.mockKVOStatus = 3;
+    }, ^{
+        self.mockKVOStatus = 4;
+    },  ^{
+        self.mockKVOStatus = 1;
+    },  ^{
+        self.mockKVOStatus = 2;
+    }, nil];
+```
